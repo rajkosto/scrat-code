@@ -66,12 +66,12 @@ public:
 
     static SQInteger Func(HSQUIRRELVM vm) {
         // Get the arg count
-        int argCount = sq_gettop(vm) - 2;
+        SQInteger argCount = sq_gettop(vm) - 2;
 
         const SQChar* funcName;
         sq_getstring(vm, -1, &funcName); // get the function name (free variable)
 
-        string overloadName = SqOverloadName::Get(funcName, argCount);
+        string overloadName = SqOverloadName::Get(funcName, (int)argCount);
 
         sq_pushstring(vm, overloadName.c_str(), -1);
 
@@ -84,7 +84,7 @@ public:
 #endif
 
         // Push the args again
-        for (int i = 1; i <= argCount + 1; ++i) {
+        for (SQInteger i = 1; i <= argCount + 1; ++i) {
             sq_push(vm, i);
         }
 
@@ -112,12 +112,12 @@ public:
 
     static SQInteger Func(HSQUIRRELVM vm) {
         // Get the arg count
-        int argCount = sq_gettop(vm) - 2;
+        SQInteger argCount = sq_gettop(vm) - 2;
 
         const SQChar* funcName;
         sq_getstring(vm, -1, &funcName); // get the function name (free variable)
 
-        string overloadName = SqOverloadName::Get(funcName, argCount);
+        string overloadName = SqOverloadName::Get(funcName, (int)argCount);
 
         sq_pushstring(vm, overloadName.c_str(), -1);
 
@@ -130,7 +130,7 @@ public:
 #endif
 
         // Push the args again
-        for (int i = 1; i <= argCount + 1; ++i) {
+        for (SQInteger i = 1; i <= argCount + 1; ++i) {
             sq_push(vm, i);
         }
 
