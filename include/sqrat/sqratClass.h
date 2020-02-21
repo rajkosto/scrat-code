@@ -667,7 +667,7 @@ protected:
         if (name == 0)
             name = _SC("constructor");
         else alternative_global = true;
-        string overloadName = SqOverloadName::Get(name, nParams);
+        string overloadName = SqOverloadName::Get(name, (int)nParams);
 
         if (!alternative_global )
         {
